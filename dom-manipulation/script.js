@@ -1,6 +1,6 @@
 // Array of quote objects
 let quotes = []
-
+  
 // Select DOM elements
 const randomBtn = document.getElementById("newQuote");
 const addBtn = document.getElementById("addQuoteBtn");
@@ -65,7 +65,7 @@ function showRandomQoute() {
 
 
 // Function to add new quotes
-function createAddQuoteForm() {}
+function createAddQuoteForm() {
   const textInput = document.getElementById("newQuoteText");
   const categoryInput = document.getElementById("newQuoteCategory");
 
@@ -124,28 +124,6 @@ function importFromJsonFile(event) {
 }
 
 
-    //Create and append a small confirmation message dynamically
-    const confirmation = document.createElement("p");
-    confirmation.textContent = "🎉 New quote added successfully!";
-    confirmation.style.color = "green";
-
-    // Clear any old message first
-    const existingMsg = document.getElementById("confirmationMsg");
-    if (existingMsg) existingMsg.remove();
-
-    confirmation.id = "confirmationMsg";
-    document.body.appendChild(confirmation);
-
-    textInput.value = "";
-    categoryInput.value = "";
-
-    showRandomQuote(); // Show the newly added quote
-
-  } else {
-    alert("Please fill in both fields before submitting.");
-  }
-
-
 // Event listeners
 randomBtn.addEventListener("click", showRandomQuote);
 addBtn.addEventListener("click", addQuote); 
@@ -160,4 +138,6 @@ if (lastQuote) {
   quoteDisplay.innerHTML = `<p>"${lastQuote.text}"</p><p><em>— ${lastQuote.category}</em></p>`;
 } else {
   showRandomQuote();
+}
+
 }

@@ -16,7 +16,13 @@
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
     <button onclick="addQuote()">Add Quote</button>
   </div>
-    
+     
+  <div>
+    <hr>
+    <h3>Manage Your Quotes</h3>
+    <button id="exportBtn">Export Quotes (JSON)</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  </div>
 
     <!-- The add quote form will appear here dynamically -->
     <div id="createAddQuoteForm"></div>
