@@ -21,7 +21,7 @@ function showRandomQoute() {
 
 
 // Function to add new quotes
-function addQuote() {
+function createAddQuoteForm() {
   const textInput = document.getElementById("newQuoteText");
   const categoryInput = document.getElementById("newQuoteCategory");
 
