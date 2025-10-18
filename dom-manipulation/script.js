@@ -42,5 +42,5 @@ const newQuote = {
 }
 
 // Event listeners
-randomBtn.addEventListener("click", displayRandomQuote);
+randomBtn.addEventListener("click", showRandomQuote);
 addBtn.addEventListener("click", addQuote); 
