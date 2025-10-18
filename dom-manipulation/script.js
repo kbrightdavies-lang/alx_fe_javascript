@@ -14,9 +14,23 @@ const quoteDisplay = document.getElementById("quoteDisplay")
 
 // Function to display a random quote
 function showRandomQoute() {
-  const newIndex = Math.floor(Math.random() * quotes.length);
-  const { text, category } = quotes[newIndex];
-  quoteDisplay.innerHTML = `<p>"${text}"</p><p><em>— ${category}</em></p>`;
+  //Clear any existing quote
+  quoteDisplay.innerHTML = ""
+
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const { text, category } = quotes[randomIndex];
+
+  // Create elements dynamically
+  const quoteText = document.createElement("p");
+  quoteText.textContent = `"${text}"`;
+
+  const quoteCategory = document.createElement("p");
+  quoteCategory.textContent = `— ${category}`;
+  quoteCategory.style.fontStyle = "italic";
+
+  // Append elements to the quote display
+  quoteDisplay.appendChild(quoteText);
+  quoteDisplay.appendChild(quoteCategory);
 }
 
 
@@ -32,10 +46,24 @@ const newQuote = {
 
   if (newQuote.text && newQuote.category) {
     quotes.push(newQuote);
-    alert("🎉 New quote added successfully!");
+
+    //Create and append a small confirmation message dynamically
+    const confirmation = document.createElement("p");
+    confirmation.textContent = "🎉 New quote added successfully!";
+    confirmation.style.color = "green";
+
+    // Clear any old message first
+    const existingMsg = document.getElementById("confirmationMsg");
+    if (existingMsg) existingMsg.remove();
+
+    confirmation.id = "confirmationMsg";
+    document.body.appendChild(confirmation);
+
     textInput.value = "";
     categoryInput.value = "";
+
     showRandomQuote(); // Show the newly added quote
+
   } else {
     alert("Please fill in both fields before submitting.");
   }
