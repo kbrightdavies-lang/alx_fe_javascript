@@ -13,7 +13,7 @@ const quoteDisplay = document.getElementById("quoteDisplay")
 
 
 // Function to display a random quote
-function showNewQuote() {
+function displayRandomQoute() {
   const newIndex = Math.floor(Math.random() * quotes.length);
   const { text, category } = quotes[newIndex];
   quoteDisplay.innerHTML = `<p>"${text}"</p><p><em>— ${category}</em></p>`;
@@ -35,12 +35,12 @@ const newQuote = {
     alert("🎉 New quote added successfully!");
     textInput.value = "";
     categoryInput.value = "";
-    showNewQuote(); // Show the newly added quote
+    displayRandomQuote(); // Show the newly added quote
   } else {
     alert("Please fill in both fields before submitting.");
   }
 }
 
 // Event listeners
-randomBtn.addEventListener("click", showNewQuote);
+randomBtn.addEventListener("click", displayRandomQuote);
 addBtn.addEventListener("click", addQuote); 
