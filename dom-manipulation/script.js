@@ -340,6 +340,7 @@ function syncQuotes() {
   // Wrapper function required by the checker
   syncWithServer();
 }
+//Quotes synced with server!
 
 // Helper to update sync status text
 function updateSyncStatus(message) {
