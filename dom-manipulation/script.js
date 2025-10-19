@@ -273,9 +273,7 @@ function importFromJsonFile(event) {
 // SERVER SYNC SIMULATION
 // =======================
 
-async function syncWithServer() {
-  try {
-    updateSyncStatus("🔄 Syncing with server...");
+async function fetchQuotesFromServer() {
     // Simulate fetching server data (JSONPlaceholder dummy endpoint)
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const serverData = await response.json();
@@ -285,6 +283,16 @@ async function syncWithServer() {
       text: item.title,
       category: "Server Sync"
     }));
+
+    return serverQuotes;
+}
+
+async function syncWithServer() {
+  try {
+    updateSyncStatus("🔄 Syncing with server...");
+
+    // Fetch quotes from the simulated server
+    const serverQuotes = await fetchQuotesFromServer();
 
     // Conflict resolution: server takes precedence
     const combined = [...quotes, ...serverQuotes];
