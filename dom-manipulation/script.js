@@ -87,6 +87,7 @@ const newQuote = {
     quotes.push(newQuote);
     saveQuotes(); // Save to local storage
     populateCategories();
+    postQuoteToServer(newQuote); // 👈 added this line
 
     alert("🎉 New quote added successfully!");
     textInput.value = "";
@@ -285,6 +286,29 @@ async function fetchQuotesFromServer() {
     }));
 
     return serverQuotes;
+}
+
+// =======================
+// POST NEW QUOTE TO SERVER
+// =======================
+async function postQuoteToServer(newQuote) {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newQuote)
+    });
+
+    if (response.ok) {
+      console.log("✅ Quote successfully posted to server!");
+    } else {
+      console.warn("⚠️ Failed to post quote. Server returned an error.");
+    }
+  } catch (error) {
+    console.error("❌ Error posting quote:", error);
+  }
 }
 
 async function syncWithServer() {
