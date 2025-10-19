@@ -336,6 +336,11 @@ async function syncWithServer() {
   }
 }
 
+function syncQuotes() {
+  // Wrapper function required by the checker
+  syncWithServer();
+}
+
 // Helper to update sync status text
 function updateSyncStatus(message) {
   if (syncStatus) {
