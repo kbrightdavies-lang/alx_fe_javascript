@@ -31,6 +31,21 @@
 
     <!-- The add quote form will appear here dynamically -->
     <div id="createAddQuoteForm"></div>
+
+  <!-- Sync Controls / Notifications -->
+<div id="syncControls" style="margin-top:16px;">
+  <button id="manualSyncBtn">Sync Now</button>
+  <span id="syncStatus" style="margin-left:10px;">Last sync: never</span>
+</div>
+
+<!-- Conflict resolution modal / panel -->
+<div id="conflictPanel" style="display:none; border:1px solid #f0a; padding:10px; margin-top:12px; background:#fff6fb;">
+  <h4>Sync Conflicts Detected</h4>
+  <div id="conflictList"></div>
+  <button id="applyServerBtn">Accept All Server Changes</button>
+  <button id="applyLocalBtn">Keep All Local Changes (Upload)</button>
+</div>
+
   
 
   <script src="script.js"></script>
